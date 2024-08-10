@@ -1,6 +1,6 @@
-const xyz = require("@xyzteams/scapers");
+const xyz = require("@xyzteams/scapers").Scapers;
 let handler = async (m, { text, conn, args, usedPrefix, command }) => {
-  const a = await xyz.download.youtube.search(text).then(async (res) => {
+  const a = await xyz.Download.youtube.search(text).then(async (res) => {
     if (!res) throw "No results found";
     let data = await res[0];
     if (data.duration.seconds > 600) throw "Max duration is 10 minutes";
@@ -17,9 +17,9 @@ let handler = async (m, { text, conn, args, usedPrefix, command }) => {
         contextInfo: {
           externalAdReply: {
             title: "Play Audio",
-            body: "wm",
+            body: wm,
             thumbnailUrl: data.thumbnail,
-            sourceUrl: null,
+            sourceUrl: data.url,
             mediaType: 1,
             renderLargerThumbnail: true,
           },
@@ -29,12 +29,12 @@ let handler = async (m, { text, conn, args, usedPrefix, command }) => {
     );
     return data.url;
   });
-  await xyz.download.youtube.ytmp3(a).then(async (res) => {
-    if (!res.url) throw "No results found";
+  await xyz.Download.youtube.youtube(a).then(async (res) => {
+    if (!res) throw "No results found";
     await conn.sendMessage(
       m.chat,
       {
-        audio: { url: res.url },
+        audio: { url: res.audio.url },
         mimetype: "audio/mp4",
       },
       { quoted: m }
