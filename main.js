@@ -444,13 +444,13 @@ const {
       async function Handler(chatUpdate) {
   			try {
   				const mek = chatUpdate.messages[0]
-  				console.log("==== mek ====")
-  				console.log(mek)
+  				//console.log("==== mek ====")
+  				//console.log(mek)
   				if (!mek.message) return
   				
   				if(mek.msg && mek.key.fromMe) {
     				const pollCreation = await getMessage(key)
-    				console.log('jabatan')
+    				//console.log('jabatan')
     				if(pollCreation) {
     				    const pollUpdate = await getAggregateVotesInPollMessage({
     							message: pollCreation,
@@ -459,7 +459,7 @@ const {
     	                var toCmd = pollUpdate.filter(v => v.voters.length !== 0)[0]?.name
     	                if (toCmd == undefined) return
                         var prefCmd = prefix + toCmd
-                        console.log("=======\n"+prefCmd)
+                        //console.log("=======\n"+prefCmd)
     	                conn.appenTextMessage(prefCmd, chatUpdate)
     				}
     			}
