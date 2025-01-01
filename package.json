@@ -16,7 +16,7 @@
   "author": "NdyZz",
   "license": "MIT",
   "dependencies": {
-    "@adiwajshing/baileys": "npm:@whiskeysockets/baileys@6.6.0",
+    "@adiwajshing/baileys": "npm:@whiskeysockets/baileys@6.7.9",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^4.2.4",
     "@distube/ytdl-core": "^4.13.5",
